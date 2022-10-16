@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load problems_list_extras %} 
+
+{%block link %}
+  <!-- Need this for code highlighting -->
+  <link rel="stylesheet" href="{% static 'css/default.css' %}" />
+{% endblock link %} 
+
+{% block title %}
+  <title>{{ problem.name }}</title>
+{% endblock title %} 
+
+{% block content %} 
+  {{ problem.note|convert_markdown|safe }}
+{% endblock content %}
