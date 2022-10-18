@@ -68,8 +68,8 @@
     <div class="col-sm-3 sidebar">
       <ul>
         <li>
+          {% csrf_token %}
           <form method="GET" autocomplete="off">
-            {% csrf_token %}
             <input name="q" 
                   class="form-control" 
                   type="text" 
