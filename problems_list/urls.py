@@ -3,17 +3,17 @@ from . import views
 
 app_name = 'problems_list'
 urlpatterns = [
-    path(
+    path( 
         '', 
         views.problems_list, 
         name='home'
     ),
-    path(
+    path( 
         '<int:pk>/', 
         views.note, 
         name='note'
     ),
-    path(
+    path( 
         'about/', 
         views.about, 
         name='about'
