@@ -6,12 +6,15 @@ from .models import Problem
 OBJECTS_PER_PAGE = 15
 
 def problems_list(request):
+    # problems_list = Problem.objects.all()
+
     query = request.GET.get('q') if request.GET.get('q') != None else ''
+
     problems_list = Problem.objects.filter(
         Q(name__icontains=query) |
         Q(topic__icontains=query) |
         Q(difficulty__name__icontains=query)
-    ).order_by('id')
+    ).order_by('-add_date')
 
     problems_count = problems_list.count()
     

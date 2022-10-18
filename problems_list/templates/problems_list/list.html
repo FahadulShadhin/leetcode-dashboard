@@ -6,19 +6,54 @@
 {% endblock title %} 
 
 {% block content %}
-  <a class="home-link" 
-    href="{% url 'problems_list:home' %}">
-    <h1>Problems List</h1> <space />
-  </a>
-
-  <p>
-    {% if problems_count > 1 %}
-      {{ problems_count }} problems
-    {% endif %}
-  </p>
+  <div class="row">
+    <div class="col-sm-12 topbar">
+      <ul>
+        <li>
+          <a class="home-button" 
+            href="{% url 'problems_list:home' %}">
+            Problems List
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <div class="row">
-    <div class="col-sm-9 problems-list">
+    <div class="col-sm-2 sidebar">
+      <ul>
+        <li>
+          {% csrf_token %}
+          <form method="GET" autocomplete="off">
+            <input name="q" 
+                  class="form-control" 
+                  type="text" 
+                  placeholder="Search a problem..." 
+                  aria-label="Search"
+            />
+          </form>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'problems_list:about' %}">About</a>
+        </li>
+        <li class="nav-item">
+          <a href={{ leetcode_github.url }}
+            target="_blank"
+            rel="noopener noreferrer">
+            GitHub
+          </a>
+        </li>
+        <li class="nav-item"><a href="#">Sign in</a></li>
+      </ul>
+    </div>
+
+    <div class="col-sm-7 problems-list" >
+      <section class="problems-count">
+        {% if problems_count > 1 %}
+          Total {{ problems_count }} problems
+        {% endif %}
+      </section>
+      
       <table>
         <tr>
           <th>Problem</th>
@@ -66,30 +101,6 @@
     </div>
     
     <div class="col-sm-3 sidebar">
-      <ul>
-        <li>
-          {% csrf_token %}
-          <form method="GET" autocomplete="off">
-            <input name="q" 
-                  class="form-control" 
-                  type="text" 
-                  placeholder="Search a problem..." 
-                  aria-label="Search"
-            />
-          </form>
-        </li>
-        <!-- <li class="nav-item">
-          <a href="{% url 'problems_list:about' %}">About</a>
-        </li>
-        <li class="nav-item">
-          <a href={{ leetcode_github.url }}
-            target="_blank"
-            rel="noopener noreferrer">
-            GitHub
-          </a>
-        </li>
-        <li class="nav-item"><a href="#">Sign in</a></li> -->
-      </ul>
       {% include 'problems_list/chart.html' %}
     </div>
   </div>
