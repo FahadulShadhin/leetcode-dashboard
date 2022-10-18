@@ -1,4 +1,18 @@
-from .models import Links
+from .models import Problem, Links
+
+
+def problems_count_by_difficulty(request):
+    easy_count = Problem.objects.filter(difficulty__name__contains="Easy").count()
+    medium_count = Problem.objects.filter(difficulty__name__contains="Medium").count()
+    hard_count = Problem.objects.filter(difficulty__name__contains="Hard").count()
+
+    context = {
+        'easy_count': easy_count,
+        'medium_count': medium_count,
+        'hard_count': hard_count
+    }
+    return context
+
 
 def links(request):
     github = Links.objects.get(name="github")

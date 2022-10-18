@@ -18,7 +18,7 @@
   </p>
 
   <div class="row">
-    <div class="col-sm-10 problems-list">
+    <div class="col-sm-9 problems-list">
       <table>
         <tr>
           <th>Problem</th>
@@ -65,8 +65,8 @@
       </table>
     </div>
     
-    <div class="col-sm-2 sidebar">
-      <ul>
+    <div class="col-sm-3 sidebar">
+      <!-- <ul>
         <li>
           <form method="GET" autocomplete="off">
             {% csrf_token %}
@@ -89,7 +89,8 @@
           </a>
         </li>
         <li class="nav-item"><a href="#">Sign in</a></li>
-      </ul>
+      </ul> -->
+      {% include 'problems_list/chart.html' %}
     </div>
   </div>
   <space />

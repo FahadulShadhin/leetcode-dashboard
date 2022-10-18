@@ -1,0 +1,35 @@
+{% block link %}
+  <!-- Chart.js CDN  -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+{% endblock link %}
+
+<canvas id="problemsStatChart"></canvas>
+<script>
+  const easy_total = '{{ easy_count }}';
+  const medium_total = '{{ medium_count }}';
+  const hard_total = '{{ hard_count }}';
+
+  const ctx = document.getElementById('problemsStatChart').getContext('2d');
+  const myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: [' Easy', ' Medium', ' Hard'],
+      datasets: [{
+        label: 'problems',
+        data: [easy_total, medium_total, hard_total],
+        backgroundColor: [
+          'rgba(0, 128, 0, 0.7)',
+          'rgba(255, 165, 0, 0.7)',
+          'rgba(255, 0, 0, 0.7)'
+        ],
+        borderColor: [
+          'rgba(0, 0, 0, 0)',
+          'rgba(0, 0, 0, 0)',
+          'rgba(0, 0, 0, 0)'
+        ],
+        hoverOffset: 4,
+        borderAlign: 'inner'
+      }]
+    }
+  });
+</script>

@@ -63,7 +63,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'problems_list.context_processors.links'
+                'problems_list.context_processors.links',
+                'problems_list.context_processors.problems_count_by_difficulty',
             ],
         },
     },
