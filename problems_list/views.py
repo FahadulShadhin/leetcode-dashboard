@@ -11,7 +11,7 @@ def problems_list(request):
         Q(name__icontains=query) |
         Q(topic__icontains=query) |
         Q(difficulty__name__icontains=query)
-    ).distinct()
+    ).order_by('id')
 
     problems_count = problems_list.count()
     
