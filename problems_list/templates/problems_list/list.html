@@ -25,22 +25,21 @@
         <ul>
           <li>
             {% csrf_token %}
-            <form method="GET" autocomplete="off">
-              <input name="q" 
-                    class="form-control" 
-                    type="text" 
-                    placeholder="Search a problem..." 
-                    aria-label="Search"
+            <form method="GET" action="search" autocomplete="off" style="display: flex; justify-content: space-around;">
+              <input name="q" id="q"
+                class="form-control" 
+                type="search" 
+                placeholder="Search a problem..." 
+                aria-label="Search"
               />
+              <button type="submit" class="submit-btn">&#x1F50E;&#xFE0E;</button>
             </form>
           </li>
           <li class="nav-item">
             <a href="{% url 'problems_list:about' %}">About</a>
           </li>
           <li class="nav-item">
-            <a href={{ leetcode_github.url }}
-              target="_blank"
-              rel="noopener noreferrer">
+            <a href={{ leetcode_github.url }} target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
           </li>
@@ -50,9 +49,7 @@
 
       <div class="col-sm-7 problems-list" >
         <section class="problems-count">
-          {% if problems_count > 1 %}
             Total {{ problems_count }} problems
-          {% endif %}
         </section>
         
         <table>
@@ -66,33 +63,23 @@
           {% for problem in problems %}
             <tr>
               <td>
-                <a href="{{ problem.link }}"
-                  target="blank"
-                  rel="noopener noreferrer">
+                <a href="{{ problem.link }}" target="blank" rel="noopener noreferrer">
                   {{ problem.name }}
                 </a>
               </td>
-              <td>
-                <a class="problem-topic" 
-                  href="{% url 'problems_list:home' %}?q={{ problem.topic }}">
-                  {{ problem.topic }}
-                </a>
+              <td class="problem-topic">
+                {{ problem.topic }}
+              </td>
+              <td class="{{ problem.difficulty }}">
+                {{ problem.difficulty }}
               </td>
               <td>
-                <a class="{{ problem.difficulty }}" 
-                  href="{% url 'problems_list:home' %}?q={{ problem.difficulty }}">
-                  {{ problem.difficulty }}
-                </a>
-              </td>
-              <td>
-                <a class="problem-note" 
-                  href="{% url 'problems_list:note' problem.id %}">
+                <a class="problem-note" href="{% url 'problems_list:note' problem.id %}">
                   Note
                 </a>
               </td>
               <td>
-                <a class="problem-code" 
-                  href="{{ problem.source_code.url }}">
+                <a class="problem-code" href="{{ problem.source_code.url }}">
                   Python
                 </a>
               </td>
@@ -109,7 +96,3 @@
     </div>
   </div>
 {% endblock content %}
-
-{% block script %}
-  <script src="{% static 'js/main.js' %}"></script>
-{% endblock script %}

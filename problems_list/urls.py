@@ -9,13 +9,18 @@ urlpatterns = [
         name='home'
     ),
     path( 
+        'search/', 
+        views.search, 
+        name='search'
+    ),
+    path( 
         '<int:pk>/', 
         views.note, 
-        name='note'
+        name = 'note'
     ),
     path( 
         'about/', 
         views.about, 
-        name='about'
+        name = 'about'
     ),
 ]
