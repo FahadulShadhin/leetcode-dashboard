@@ -15,10 +15,19 @@ class Problem(models.Model):
     add_date    = models.DateTimeField(auto_now_add=True)
     link        = models.URLField(max_length=256, unique=True, blank=True)
     note        = models.TextField(null=True)
+    img         = models.ImageField(upload_to='img/', null=True, default=None)
     source_code = models.FileField(upload_to='source_code/', null=True, default=None)
 
     def __str__(self):
         return self.name
+
+    @property
+    def imgURL(self):
+        try:
+            url = self.img.url 
+        except:
+            url = ''
+        return url
 
 
 class Links(models.Model):

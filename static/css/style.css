@@ -9,7 +9,10 @@ html, body {
   padding: 20px;
 }
 
-.container { padding-top: 50px; }
+.container { 
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 
 .submit-btn {
   margin-left: 5px;
@@ -77,10 +80,10 @@ li {
 
 .nav-item { color: #306998; }
 
-.to-home { 
-  background-color: #306998; 
-  color: #ffffff;
-  padding: 7px;
+.back-to-home {
+  font-size: 20px;
+  color: #306998;
+  padding-left: 100px;
 }
 
 .text-center {text-align: center;}
