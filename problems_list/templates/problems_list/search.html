@@ -1,0 +1,96 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %}
+  <title>Leetcode Problems List</title>
+{% endblock title %} 
+
+{% block content %}
+  <div class="my-container">
+    <div class="row">
+      <div class="col-sm-12 topbar">
+        <ul>
+          <li>
+            <a class="home-button" 
+              href="{% url 'problems_list:home' %}">
+              Problems List
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-2 sidebar">
+        <ul>
+          <li class="nav-item">
+            <a href="{% url 'problems_list:about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a href={{ leetcode_github.url }}
+              target="_blank"
+              rel="noopener noreferrer">
+              GitHub
+            </a>
+          </li>
+          <li class="nav-item"><a href="#">Sign in</a></li>
+        </ul>
+      </div>
+
+      <div class="col-sm-7 problems-list" >
+        <section class="problems-count">
+            Total {{ problems_count }} problems
+        </section>
+        
+        <table>
+          <tr>
+            <th>Problem</th>
+            <th>Topic</th>
+            <th>Difficulty</th>
+            <th>Solution Note</th>
+            <th>Source Code</th>
+          </tr>
+          {% for problem in problems %}
+            <tr>
+              <td>
+                <a href="{{ problem.link }}"
+                  target="blank"
+                  rel="noopener noreferrer">
+                  {{ problem.name }}
+                </a>
+              </td>
+              <td class="problem-topic">
+                {{ problem.topic }}
+              </td>
+              <td class="{{ problem.difficulty }}" >
+                {{ problem.difficulty }}
+              </td>
+              <td>
+                <a class="problem-note" 
+                  href="{% url 'problems_list:note' problem.id %}">
+                  Note
+                </a>
+              </td>
+              <td>
+                <a class="problem-code" 
+                  href="{{ problem.source_code.url }}">
+                  Python
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+        <div class="space"></div>
+        {% include  'problems_list/paginated_search.html'%}
+      </div>
+      
+      <div class="col-sm-3 sidebar">
+        {% include 'problems_list/chart.html' %}
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block script %}
+  <script src="{% static 'js/main.js' %}"></script>
+{% endblock script %}
