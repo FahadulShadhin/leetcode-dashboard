@@ -6,7 +6,7 @@ from .models import Problem
 OBJECTS_PER_PAGE = 15
 
 def problems_list(request):
-    problems_list = Problem.objects.all()
+    problems_list = Problem.objects.all().order_by('-add_date')
     problems_count = problems_list.count()
     
     page = request.GET.get('page', 1)
