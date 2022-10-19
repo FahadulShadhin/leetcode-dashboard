@@ -49,7 +49,8 @@ def search(request):
 
     context = {
         'problems': problems,
-        'problems_count': problems_count
+        'problems_count': problems_count,
+        'query': query,
     }
 
     return render(request, 'problems_list/search.html', context)
