@@ -23,7 +23,7 @@ class Problem(models.Model):
 
 class Links(models.Model):
     name = models.CharField(max_length=256, null=True)
-    url = models.URLField(max_length=256, unique=True, blank=True)
+    url  = models.URLField(max_length=256, unique=True, blank=True)
 
     def __str__(self):
         return self.name
