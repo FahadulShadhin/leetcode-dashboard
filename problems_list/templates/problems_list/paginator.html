@@ -4,6 +4,7 @@
       {% if problems.has_previous %}
         <li class="page-item">
           <a class="page-link" 
+            style="color: black;"
             href="?page={{ problems.previous_page_number }}" 
             aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
@@ -19,7 +20,7 @@
         {% if problems.number == p %}
           <li class="page-item">
             <a class="page-link" 
-              style="color: #ffa500;" 
+              style="background-color: #d7edff; color: black;" 
               href="#">
               {{ p }}
             </a>
@@ -27,6 +28,7 @@
         {% else %}
           <li class="page-item">
             <a class="page-link" 
+              style="color: black;"
               href="?page={{ p }}">
               {{ p }}
             </a>
@@ -37,6 +39,7 @@
       {% if problems.has_next %}
         <li class="page-item">
           <a class="page-link" 
+            style="color: black;"
             href="?page={{ problems.next_page_number }}" 
             aria-label="Next">
             <span aria-hidden="true">&raquo;</span>

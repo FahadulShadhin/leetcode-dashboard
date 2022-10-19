@@ -14,10 +14,9 @@
   {% endblock title %}
 </head>
 <body>
-  <div class="my-container">
-    {% block content %}
-    {% endblock content %}
-  </div>
+  {% block content %}
+  {% endblock content %}
+  
   <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
   {% block script %}
   {% endblock script %}

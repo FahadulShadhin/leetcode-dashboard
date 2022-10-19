@@ -12,5 +12,18 @@
 {% endblock title %} 
 
 {% block content %} 
-  {{ problem.note|convert_markdown|safe }}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10">
+        {{ problem.note|convert_markdown|safe }}
+      </div>
+      
+      <div class="col-sm-2">
+        <a href="{% url 'problems_list:home' %}" 
+          class="to-home">
+          Back to home
+        </a>
+      </div>
+    </div>
+  </div>
 {% endblock content %}

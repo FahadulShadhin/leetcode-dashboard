@@ -6,106 +6,108 @@
 {% endblock title %} 
 
 {% block content %}
-  <div class="row">
-    <div class="col-sm-12 topbar">
-      <ul>
-        <li>
-          <a class="home-button" 
-            href="{% url 'problems_list:home' %}">
-            Problems List
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-2 sidebar">
-      <ul>
-        <li>
-          {% csrf_token %}
-          <form method="GET" autocomplete="off">
-            <input name="q" 
-                  class="form-control" 
-                  type="text" 
-                  placeholder="Search a problem..." 
-                  aria-label="Search"
-            />
-          </form>
-        </li>
-        <li class="nav-item">
-          <a href="{% url 'problems_list:about' %}">About</a>
-        </li>
-        <li class="nav-item">
-          <a href={{ leetcode_github.url }}
-            target="_blank"
-            rel="noopener noreferrer">
-            GitHub
-          </a>
-        </li>
-        <li class="nav-item"><a href="#">Sign in</a></li>
-      </ul>
+  <div class="my-container">
+    <div class="row">
+      <div class="col-sm-12 topbar">
+        <ul>
+          <li>
+            <a class="home-button" 
+              href="{% url 'problems_list:home' %}">
+              Problems List
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="col-sm-7 problems-list" >
-      <section class="problems-count">
-        {% if problems_count > 1 %}
-          Total {{ problems_count }} problems
-        {% endif %}
-      </section>
-      
-      <table>
-        <tr>
-          <th>Problem</th>
-          <th>Topic</th>
-          <th>Difficulty</th>
-          <th>Solution Note</th>
-          <th>Source Code</th>
-        </tr>
-        {% for problem in problems %}
+    <div class="row">
+      <div class="col-sm-2 sidebar">
+        <ul>
+          <li>
+            {% csrf_token %}
+            <form method="GET" autocomplete="off">
+              <input name="q" 
+                    class="form-control" 
+                    type="text" 
+                    placeholder="Search a problem..." 
+                    aria-label="Search"
+              />
+            </form>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'problems_list:about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a href={{ leetcode_github.url }}
+              target="_blank"
+              rel="noopener noreferrer">
+              GitHub
+            </a>
+          </li>
+          <li class="nav-item"><a href="#">Sign in</a></li>
+        </ul>
+      </div>
+
+      <div class="col-sm-7 problems-list" >
+        <section class="problems-count">
+          {% if problems_count > 1 %}
+            Total {{ problems_count }} problems
+          {% endif %}
+        </section>
+        
+        <table>
           <tr>
-            <td>
-              <a href="{{ problem.link }}"
-                target="blank"
-                rel="noopener noreferrer">
-                {{ problem.name }}
-              </a>
-            </td>
-            <td>
-              <a class="problem-topic" 
-                href="{% url 'problems_list:home' %}?q={{ problem.topic }}">
-                {{ problem.topic }}
-              </a>
-            </td>
-            <td>
-              <a class="{{ problem.difficulty }}" 
-                href="{% url 'problems_list:home' %}?q={{ problem.difficulty }}">
-                {{ problem.difficulty }}
-              </a>
-            </td>
-            <td>
-              <a class="problem-note" 
-                href="{% url 'problems_list:note' problem.id %}">
-                Note
-              </a>
-            </td>
-            <td>
-              <a class="problem-code" 
-                href="{{ problem.source_code.url }}">
-                Python
-              </a>
-            </td>
+            <th>Problem</th>
+            <th>Topic</th>
+            <th>Difficulty</th>
+            <th>Solution Note</th>
+            <th>Source Code</th>
           </tr>
-        {% endfor %}
-      </table>
-    </div>
-    
-    <div class="col-sm-3 sidebar">
-      {% include 'problems_list/chart.html' %}
+          {% for problem in problems %}
+            <tr>
+              <td>
+                <a href="{{ problem.link }}"
+                  target="blank"
+                  rel="noopener noreferrer">
+                  {{ problem.name }}
+                </a>
+              </td>
+              <td>
+                <a class="problem-topic" 
+                  href="{% url 'problems_list:home' %}?q={{ problem.topic }}">
+                  {{ problem.topic }}
+                </a>
+              </td>
+              <td>
+                <a class="{{ problem.difficulty }}" 
+                  href="{% url 'problems_list:home' %}?q={{ problem.difficulty }}">
+                  {{ problem.difficulty }}
+                </a>
+              </td>
+              <td>
+                <a class="problem-note" 
+                  href="{% url 'problems_list:note' problem.id %}">
+                  Note
+                </a>
+              </td>
+              <td>
+                <a class="problem-code" 
+                  href="{{ problem.source_code.url }}">
+                  Python
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+        <div class="space"></div>
+        {% include  'problems_list/paginator.html'%}
+      </div>
+      
+      <div class="col-sm-3 sidebar">
+        {% include 'problems_list/chart.html' %}
+      </div>
     </div>
   </div>
-  <space />
-  {% include  'problems_list/paginator.html'%}
 {% endblock content %}
 
 {% block script %}

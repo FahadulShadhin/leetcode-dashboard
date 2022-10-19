@@ -9,6 +9,8 @@ html, body {
   padding: 20px;
 }
 
+.container { padding-top: 50px; }
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -67,8 +69,14 @@ li {
 
 .nav-item { color: #306998; }
 
+.to-home { 
+  background-color: #306998; 
+  color: #ffffff;
+  padding: 7px;
+}
+
 .text-center {text-align: center;}
 
-space {
-  padding: 50px;
+.space {
+  margin-top: 30px;
 }
