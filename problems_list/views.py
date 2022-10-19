@@ -38,7 +38,7 @@ def search(request):
     problems_count = problems_list.count()
 
     page = request.GET.get('page', 1)
-    paginator = Paginator(problems_list, 5)
+    paginator = Paginator(problems_list, OBJECTS_PER_PAGE)
 
     try:
         problems = paginator.page(page)
