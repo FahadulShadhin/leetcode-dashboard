@@ -11,8 +11,7 @@
       <div class="col-sm-12 topbar">
         <ul>
           <li>
-            <a class="home-button" 
-              href="{% url 'problems_list:home' %}">
+            <a class="home-button" href="{% url 'problems_list:home' %}">
               Problems List
             </a>
           </li>
@@ -27,9 +26,7 @@
             <a href="{% url 'problems_list:about' %}">About</a>
           </li>
           <li class="nav-item">
-            <a href={{ leetcode_github.url }}
-              target="_blank"
-              rel="noopener noreferrer">
+            <a href={{ leetcode_github.url }} target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
           </li>
@@ -53,9 +50,7 @@
           {% for problem in problems %}
             <tr>
               <td>
-                <a href="{{ problem.link }}"
-                  target="blank"
-                  rel="noopener noreferrer">
+                <a href="{{ problem.link }}" target="blank" rel="noopener noreferrer">
                   {{ problem.name }}
                 </a>
               </td>
@@ -66,14 +61,12 @@
                 {{ problem.difficulty }}
               </td>
               <td>
-                <a class="problem-note" 
-                  href="{% url 'problems_list:note' problem.id %}">
+                <a class="problem-note" href="{% url 'problems_list:note' problem.id %}">
                   Note
                 </a>
               </td>
               <td>
-                <a class="problem-code" 
-                  href="{{ problem.source_code.url }}">
+                <a class="problem-code" href="{{ problem.source_code.url }}">
                   Python
                 </a>
               </td>
