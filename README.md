@@ -34,6 +34,13 @@
 └── templates/
 ```
 
+## Versions
+
+```
+Python 3.9.5
+Django 4.1.2
+```
+
 ## Setup
 
 * Install dependencies:
