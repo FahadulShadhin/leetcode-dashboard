@@ -14,11 +14,11 @@
 {% block content %} 
   <div class="container">
     <div class="row">
-      <div class="col-sm-9">
+      <div class="col-sm-8">
         {{ problem.note|convert_markdown|safe }}
       </div>
 
-      <div class="col-sm-3 back-to-home">
+      <div class="col-sm-4 back-to-home">
         <a href="{% url 'problems_list:home' %}">&larr; Back to dashboard</a>
       </div>
     </div>
