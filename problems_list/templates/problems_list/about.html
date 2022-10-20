@@ -8,15 +8,12 @@
 {% block content %} 
   <div class="container">
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-8">
         <p>This is where I put all my solved leetcode problems, note, and source code.</p>
       </div>
       
-      <div class="col-sm-2">
-        <a href="{% url 'problems_list:home' %}"
-          class="to-home">
-          Back to home
-        </a>
+      <div class="col-sm-4 back-to-home">
+        <a href="{% url 'problems_list:home' %}">&larr; Back to dashboard</a>
       </div>
     </div>
   </div>
