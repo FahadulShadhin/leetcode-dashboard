@@ -35,10 +35,28 @@
 ```
 
 ## Setup
+
+* Install dependencies:
+
 ```
 $ pip install -r requirements.txt
+```
+
+* Run development server:
+
+```
 $ python3 manage.py runserver
+```
+
+* Make initial migrations:
+
+```
 $ python3 manage.py makemigrations
 $ python3 manage.py migrate
+```
+
+* Create a superuser to gain admin access:
+
+```
 $ python3 manage.py createsuperuser
 ```
