@@ -1,23 +1,13 @@
 from django.shortcuts import render
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
+from .utils.paginate import try_page
 from .models import Problem
-
-OBJECTS_PER_PAGE = 15
 
 def problems_list(request):
     problems_list = Problem.objects.all().order_by('-add_date')
     problems_count = problems_list.count()
     
-    page = request.GET.get('page', 1)
-    paginator = Paginator(problems_list, OBJECTS_PER_PAGE)
-
-    try:
-        problems = paginator.page(page)
-    except PageNotAnInteger:
-        problems = paginator.page(1)
-    except EmptyPage:
-        problems = paginator.page(paginator.num_pages)
+    problems = try_page(request, problems_list)
 
     context = {
         'problems': problems,
@@ -37,15 +27,7 @@ def search(request):
 
     problems_count = problems_list.count()
 
-    page = request.GET.get('page', 1)
-    paginator = Paginator(problems_list, OBJECTS_PER_PAGE)
-
-    try:
-        problems = paginator.page(page)
-    except PageNotAnInteger:
-        problems = paginator.page(1)
-    except EmptyPage:
-        problems = paginator.page(paginator.num_pages)
+    problems = try_page(request, problems_list)
 
     context = {
         'problems': problems,
