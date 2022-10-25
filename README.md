@@ -7,7 +7,7 @@
 ```
 .
 ├── manage.py
-├── problems_list        # main app
+├── problems_list               # main app
 │   ├── __init__.py
 │   ├── admin.py
 │   ├── apps.py
@@ -17,12 +17,13 @@
 │   ├── templates
 │   │   └── problems_list/
 │   ├── templatetags/
-│   ├── utils/
+│   ├── utils
+│   │   └── problems_list/      utilities for the app
 │   ├── tests.py
 │   ├── urls.py
 │   └── views.py
 ├── requirements.txt
-├── src                 # project directory   
+├── src                         # project directory   
 │   ├── __init__.py
 │   ├── asgi.py
 │   ├── settings.py
