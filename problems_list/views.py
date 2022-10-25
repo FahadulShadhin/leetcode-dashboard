@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.db.models import Q
-from .utils.paginate import try_page
+from .utils.problems_list.paginate import try_page
 from .models import Problem
+
 
 def problems_list(request):
     problems_list = Problem.objects.all().order_by('-add_date')
