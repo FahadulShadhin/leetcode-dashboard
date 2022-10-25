@@ -51,12 +51,6 @@ Django 4.1.2
 $ pip install -r requirements.txt
 ```
 
-* Run development server:
-
-```
-$ python3 manage.py runserver
-```
-
 * Make initial migrations:
 
 ```
@@ -68,4 +62,10 @@ $ python3 manage.py migrate
 
 ```
 $ python3 manage.py createsuperuser
+```
+
+* Run development server:
+
+```
+$ python3 manage.py runserver
 ```
