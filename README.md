@@ -18,7 +18,7 @@
 │   │   └── problems_list/
 │   ├── templatetags/
 │   ├── utils
-│   │   └── problems_list/      utilities for the app
+│   │   └── problems_list/      # utilities for the app
 │   ├── tests.py
 │   ├── urls.py
 │   └── views.py
