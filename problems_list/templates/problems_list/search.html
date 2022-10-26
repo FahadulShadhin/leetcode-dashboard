@@ -22,15 +22,7 @@
     <div class="row">
       <div class="col-sm-2 sidebar">
         <ul>
-          <li class="nav-item">
-            <a href="{% url 'problems_list:about' %}">About</a>
-          </li>
-          <li class="nav-item">
-            <a href={{ leetcode_github.url }} target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
-          </li>
-          <li class="nav-item"><a href="#">Sign in</a></li>
+          {% include 'problems_list/sidebar.html' %}
         </ul>
       </div>
 
@@ -74,7 +66,7 @@
           {% endfor %}
         </table>
         <div class="space"></div>
-        {% include  'problems_list/paginated_search.html'%}
+        {% include  'problems_list/paginator_search.html'%}
       </div>
       
       <div class="col-sm-3 sidebar">

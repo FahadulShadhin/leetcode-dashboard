@@ -35,15 +35,7 @@
               <button type="submit" class="submit-btn">&#x1F50E;&#xFE0E;</button>
             </form>
           </li>
-          <li class="nav-item">
-            <a href="{% url 'problems_list:about' %}">About</a>
-          </li>
-          <li class="nav-item">
-            <a href={{ leetcode_github.url }} target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
-          </li>
-          <li class="nav-item"><a href="#">Sign in</a></li>
+          {% include 'problems_list/sidebar.html' %}
         </ul>
       </div>
 
