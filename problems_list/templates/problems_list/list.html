@@ -7,19 +7,7 @@
 
 {% block content %}
   <div class="my-container">
-    <div class="row">
-      <div class="col-sm-12 topbar">
-        <ul>
-          <li>
-            <a class="home-button" 
-              href="{% url 'problems_list:home' %}">
-              Problems List
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
+    {% include 'problems_list/topbar.html' %}
     <div class="row">
       <div class="col-sm-2 sidebar">
         <ul>
@@ -29,7 +17,7 @@
               action="search" 
               autocomplete="off" 
               style="display: flex; justify-content: space-around;">
-              
+
               <input name="q" id="q"
                 class="form-control" 
                 type="search" 

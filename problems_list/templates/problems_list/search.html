@@ -7,18 +7,7 @@
 
 {% block content %}
   <div class="my-container">
-    <div class="row">
-      <div class="col-sm-12 topbar">
-        <ul>
-          <li>
-            <a class="home-button" href="{% url 'problems_list:home' %}">
-              Problems List
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
+    {% include 'problems_list/topbar.html' %}
     <div class="row">
       <div class="col-sm-2 sidebar">
         <ul>
