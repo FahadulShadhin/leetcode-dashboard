@@ -25,7 +25,11 @@
         <ul>
           <li>
             {% csrf_token %}
-            <form method="GET" action="search" autocomplete="off" style="display: flex; justify-content: space-around;">
+            <form method="GET" 
+              action="search" 
+              autocomplete="off" 
+              style="display: flex; justify-content: space-around;">
+              
               <input name="q" id="q"
                 class="form-control" 
                 type="search" 
