@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.db.models import Q
 from .utils.problems_list.paginate import try_page
 from .models import Problem
+from .forms import ProblemForm
 
 
 def problems_list(request):
@@ -50,3 +51,19 @@ def note(request, pk):
 
 def about(request):
     return render(request, 'problems_list/about.html')
+
+
+# def add(request):
+#     form = ProblemForm
+
+#     if request.method == 'POST':
+#         form = ProblemForm(request.POST, request.FILES)
+
+#         if form.is_valid():
+#             form.save()
+#             return redirect('home')
+
+#     context = {
+#         'form': form
+#     }
+#     return render(request, 'problems_list/add.html', context)

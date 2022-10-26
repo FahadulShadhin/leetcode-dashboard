@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block title %}
+  <title>Add a problem</title>
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <form action="" method="POST" enctype="multipart/form-data">
+      {% csrf_token %} 
+      {{ form.as_p }}
+      <input type="submit" class="btn btn-success" />
+    </form>
+  </div>
+{% endblock content %}
