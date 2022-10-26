@@ -58,9 +58,13 @@
                 </a>
               </td>
               <td>
-                <a class="problem-code" href="{{ problem.source_code.url }}">
-                  Python
-                </a>
+                {% if problem.source_code %}
+                  <a class="problem-code" href="{{ problem.source_code.url }}">
+                    Python
+                  </a>
+                {% else %}
+                  no file
+                {% endif %}
               </td>
             </tr>
           {% endfor %}
